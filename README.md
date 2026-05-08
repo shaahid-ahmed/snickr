@@ -6,6 +6,13 @@ Snickr is a real-time team messaging application built with Next.js 16, React 19
 
 ---
 
+## Contributors
+Built and maintained by:
+- **Aleena Bosco Kurumthottam** - Portfolio: [Aleena Bosco Kurumthottam Portfolio](https://github.com/AleenaBoscoK)
+- **Shaahid Ahmed Nadeem** - Portfolio: [Shaahid Ahmed Nadeem Portfolio](https://personal-portfolio-chi-lemon.vercel.app/)
+
+---
+
 ## Table of Contents
 
 - [Features](#features)
@@ -325,4 +332,4 @@ export const FEATURES = {
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
