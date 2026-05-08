@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-geist-sans: 'Geist', system-ui, sans-serif;
+    --font-geist-mono: 'Geist Mono', monospace;
+
+    /* brand */
+    --brand:         #9DC183;
+    --brand-dark:    #6B9E52;
+    --brand-light:   #C2DBA8;
+    --brand-faint:   #F3F8EF;
+
+    /* surfaces */
+    --surface:       #F7F9F5;
+    --surface-2:     #EEF3EA;
+
+    /* sidebar — always dark regardless of light/dark mode */
+    --sidebar-bg:    #1C2B1A;
+    --sidebar-hover: #243623;
+    --sidebar-active:#2D4430;
+    --sidebar-text:  #B8CDB5;
+    --sidebar-muted: #6B8A68;
+
+    /* scrollbar */
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: #C2DBA8;
+  }
+
+  * {
+    @apply border-surface-3;
+  }
+
+  html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans;
+  }
+
+  /* ── Slim scrollbar (webkit) ── */
+  ::-webkit-scrollbar        { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track  { background: var(--scrollbar-track); }
+  ::-webkit-scrollbar-thumb  { background: var(--scrollbar-thumb); border-radius: 99px; }
+
+  /* ── Sidebar scrollbar is even subtler ── */
+  .sidebar-scroll::-webkit-scrollbar-thumb { background: var(--sidebar-muted); }
+}
+
+@layer components {
+  /* ── Message bubble hover state ── */
+  .msg-row:hover .msg-actions { @apply opacity-100; }
+  .msg-actions                { @apply opacity-0 transition-opacity duration-100; }
+
+  /* ── Unread badge ── */
+  .unread-badge {
+    @apply bg-brand text-white text-[10px] font-semibold
+           min-w-[18px] h-[18px] rounded-full
+           flex items-center justify-center px-1;
+  }
+
+  /* ── Sidebar item base ── */
+  .sidebar-item {
+    @apply flex items-center gap-2 px-3 py-[5px] rounded-md
+           text-sidebar-text text-sm cursor-pointer select-none
+           transition-colors duration-100;
+  }
+  .sidebar-item:hover  { background: var(--sidebar-hover); }
+  .sidebar-item.active { background: var(--sidebar-active); @apply text-white font-medium; }
+
+  /* ── Input base ── */
+  .snikr-input {
+    @apply w-full rounded-lg border border-surface-3
+           bg-white px-3 py-2 text-sm text-ink
+           placeholder:text-ink-4
+           focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand
+           transition;
+  }
+
+  /* ── Button variants ── */
+  .btn-primary {
+    @apply bg-brand hover:bg-brand-dark text-white text-sm font-medium
+           px-4 py-2 rounded-lg transition-colors duration-150;
+  }
+  .btn-ghost {
+    @apply text-ink-3 hover:bg-surface-2 text-sm
+           px-3 py-1.5 rounded-md transition-colors duration-150;
+  }
+}
